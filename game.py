@@ -4,6 +4,7 @@ import os
 import sys
 import colors
 import player
+import PlayerAgent
 import wall
 import fire
 import win
@@ -13,6 +14,7 @@ pygame.init()
 screen = pygame.display.set_mode((st.windowWidth, st.windowHeight))
 
 playerObj = player.Player()
+playerAgent = PlayerAgent.PlayerAgent()
 
 
 def update_window():
@@ -39,7 +41,7 @@ def reset_player():
     for row in level_map:
         for col in row:
             if col == 'O' or col == 'o':
-                playerObj.rect = pygame.Rect(x + st.blockLength / 4, y + st.blockLength / 4,
+                playerObj.rect = pygame.Rect(x, y,
                                              st.playerLength, st.playerLength)
             x += st.blockLength
         y += st.blockLength
@@ -81,18 +83,27 @@ while running:
             running = False
 
     # key = action
-    key = pygame.key.get_pressed()
+    #key = pygame.key.get_pressed()
+    key = playerAgent.getAction(states)
 
+    if key is 4:
+        playerObj.move(-st.playerLength, 0)
+    if key is 2:
+        playerObj.move(st.playerLength, 0)
+    if key is 1:
+        playerObj.move(0, -st.playerLength)
+    if key is 3:
+        playerObj.move(0, st.playerLength)
+    # if key[pygame.K_LEFT] or key[pygame.K_a]:
+    #     playerObj.move(-st.playerLength, 0)
+    # if key[pygame.K_RIGHT] or key[pygame.K_d]:
+    #     playerObj.move(st.playerLength, 0)
+    # if key[pygame.K_UP] or key[pygame.K_w]:
+    #     playerObj.move(0, -st.playerLength)
+    # if key[pygame.K_DOWN] or key[pygame.K_s]:
+    #     playerObj.move(0, st.playerLength)
 
-
-    if key[pygame.K_LEFT] or key[pygame.K_a]:
-        playerObj.move(-st.speed, 0)
-    if key[pygame.K_RIGHT] or key[pygame.K_d]:
-        playerObj.move(st.speed, 0)
-    if key[pygame.K_UP] or key[pygame.K_w]:
-        playerObj.move(0, -st.speed)
-    if key[pygame.K_DOWN] or key[pygame.K_s]:
-        playerObj.move(0, st.speed)
+    pygame.time.delay(100)
 
     for _ in fire.fires:
         if playerObj.rect.colliderect(_.rect):
@@ -122,4 +133,4 @@ while running:
 
     update_window()
 
-    # action = Player_Agent(state, reward)
+    playerAgent.setReward(reward)

@@ -24,7 +24,7 @@ class Player(object):
                 if col == 'F' or col == 'f':
                     fire.Fire((x, y))
                 if col == 'O' or col == 'o':
-                    self.rect = pygame.Rect(x + st.blockLength / 4, y + st.blockLength / 4, st.playerLength,
+                    self.rect = pygame.Rect(x, y, st.playerLength,
                                             st.playerLength)
                 x += st.blockLength
             y += st.blockLength

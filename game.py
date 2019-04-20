@@ -49,28 +49,30 @@ def reset_player():
 startTicks = pygame.time.get_ticks()
 
 
-def display_time():
-    seconds = (pygame.time.get_ticks() - startTicks) / 1000
-    pygame.display.set_caption(
-        'Level - ' + str(st.level) + ', Time Remaining = ' + str(st.timeLimit[st.level] - seconds)
-        + ', Lives = ' + str(st.lives))
-    return seconds
+# def display_time():
+#     seconds = (pygame.time.get_ticks() - startTicks) / 1000
+#     pygame.display.set_caption(
+#         'Level - ' + str(st.level) + ', Time Remaining = ' + str(st.timeLimit[st.level] - seconds)
+#         + ', Lives = ' + str(st.lives))
+#     return seconds
 
+
+# action = Player_Agent(state)
 
 running = True
 
 while running:
 
-    display_time()
+    # display_time()
 
-    if display_time() >= st.timeLimit[st.level]:
-        pygame.time.delay(750)
-        st.lives -= 1
-        if st.lives == 0:
-            st.level = st.level - (st.level % 5) + 1
-            st.lives = 3
-        playerObj.__init__()
-        startTicks = pygame.time.get_ticks()
+    # if display_time() >= st.timeLimit[st.level]:
+    #     pygame.time.delay(750)
+    #     st.lives -= 1
+    #     if st.lives == 0:
+    #         st.level = st.level - (st.level % 5) + 1
+    #         st.lives = 3
+    #     playerObj.__init__()
+    #     startTicks = pygame.time.get_ticks()
 
     for _ in pygame.event.get():
         if _.type == pygame.QUIT:
@@ -78,7 +80,10 @@ while running:
         if _.type == pygame.KEYDOWN and _.key == pygame.K_ESCAPE:
             running = False
 
+    # key = action
     key = pygame.key.get_pressed()
+
+
 
     if key[pygame.K_LEFT] or key[pygame.K_a]:
         playerObj.move(-st.speed, 0)
@@ -93,19 +98,19 @@ while running:
         if playerObj.rect.colliderect(_.rect):
             st.lives -= 1
             if st.lives != 0:
-                pygame.time.delay(750)
+                pygame.time.delay(150)
                 reset_player()
                 startTicks = pygame.time.get_ticks()
             else:
-                pygame.time.delay(750)
-                # st.level = st.level - (st.level % 5) + 1
+                pygame.time.delay(150)
+                st.level = st.level - (st.level % 5) + 1
                 st.lives = 3
                 playerObj.__init__()
                 startTicks = pygame.time.get_ticks()
 
     for _ in win.wins:
         if playerObj.rect.colliderect(_.rect):
-            pygame.time.delay(750)
+            pygame.time.delay(150)
             st.level += 1
             st.lives = 3
             if st.level <= st.noOfLevels:
@@ -116,3 +121,5 @@ while running:
                 sys.exit()
 
     update_window()
+
+    # action = Player_Agent(state, reward)

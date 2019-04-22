@@ -10,7 +10,7 @@ import win
 
 os.environ["SDL_VIDEO_CENTERED"] = '1'
 pygame.init()
-screen = pygame.display.set_mode((int(st.windowWidth*(8/5)), int(st.windowHeight*(8/5))))
+screen = pygame.display.set_mode((st.windowWidth, st.windowHeight))
 playerObj = player.Player()
 
 

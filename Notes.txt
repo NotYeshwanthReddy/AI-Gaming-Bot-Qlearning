@@ -1,0 +1,7 @@
+Reward Function -
+	High reward if it reaches the win block
+	slight negative reward if it doesn't reach the win block in time step
+	#Panality if it doesnot cover all the checkpoints
+
+State Space -
+	

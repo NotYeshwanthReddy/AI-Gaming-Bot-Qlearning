@@ -6,6 +6,8 @@ import win
 
 
 class Player(object):
+
+    # Map initilisation
     def __init__(self):
         wall.walls = []
         checkpoint.checkpoints = []

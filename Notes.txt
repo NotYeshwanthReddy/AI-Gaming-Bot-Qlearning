@@ -4,4 +4,8 @@ Reward Function -
 	#Panality if it doesnot cover all the checkpoints
 
 State Space -
+	Total no of states	(20x15)		- 300
+
+Action Space -
+	Total No of Actions	(N,S,E,W)	- 4
 	

@@ -15,8 +15,8 @@ not-yeshwanth-reddy@tech-book:~/Documents/Sem6/Artificial Intelegence/Wall-e/AI$
 Python 2.7.16 (default, Apr  6 2019, 01:42:57) 
 [GCC 8.3.0] on linux2
 Type "help", "copyright", "credits" or "license" for more information.
->>> import numpy as np
->>> qt = np.load("qt3.npy")
->>> qt[3,:] 
-array([0., 0., 0., 0.])
->>> qt[3,:] 
+import numpy as np
+qt = np.load("qt3.npy")
+qt[3,:] 
+#array([0., 0., 0., 0.])
+qt[3,:] 

@@ -1,3 +1,10 @@
+Reference Link -
+	https://www.learndatasci.com/tutorials/reinforcement-q-learning-scratch-python-openai-gym/
+
+Git Link -
+	https://github.com/Not-Yeshwanth-Reddy/AI
+
+
 Reward Function -
 	High reward if it reaches the win block
 	slight negative reward if it doesn't reach the win block in time step

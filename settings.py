@@ -5,7 +5,7 @@ noOfLevels = 3
 #     3: 20
 # }
 # lives = 3
-level = 3
+level = 2
 # speed = 1
 windowWidth = 400
 windowHeight = int(windowWidth*3/4)

@@ -157,19 +157,19 @@ prev_action = 0
 prev_loc = (20,20)
 
 while running:
-  # # IF user wants to play
-  #   user_control()
-  #   location = playerObj.locate()
-  #   print(location[0]/20+location[1])
-
-#   If Agent needs to be trained
-    action = prev_action = Agent(state, prev_state, reward, prev_action)
-    agent_control(action)
-    # obv, reward, done, info = step(action)
-    state = prev_state = getState(playerObj.locate())
-    reward, done = getReward(playerObj.locate())
+  # IF user wants to play
+    user_control()
     location = playerObj.locate()
-    print(location[0]/20+location[1], action, reward)
+    print(location[0]/20+location[1])
+
+# #   If Agent needs to be trained
+#     action = prev_action = Agent(state, prev_state, reward, prev_action)
+#     agent_control(action)
+#     # obv, reward, done, info = step(action)
+#     state = prev_state = getState(playerObj.locate())
+#     reward, done = getReward(playerObj.locate())
+#     location = playerObj.locate()
+#     print(location[0]/20+location[1], action, reward)
 
     for _ in pygame.event.get():
         if _.type == pygame.QUIT:

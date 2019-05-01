@@ -10,6 +10,15 @@ Reward Function -
 	slight negative reward if it doesn't reach the win block in time step
 	#Panality if it doesnot cover all the checkpoints
 
+	  if key == 0:
+        playerObj.move(0, st.playerLength)      # move down
+    if key == 1:
+        playerObj.move(st.playerLength, 0)     # move right
+    if key == 2:
+        playerObj.move(0, -st.playerLength)     # move up
+    if key == 3:
+        playerObj.move(-st.playerLength, 0)      # move left
+
 State Space -
 	Total no of states	(20x15)		- 300
 

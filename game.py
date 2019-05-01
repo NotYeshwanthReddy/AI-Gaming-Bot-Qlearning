@@ -81,10 +81,10 @@ def Agent(state, prev_state, reward, prev_action):
     # from q-table, get best output for the present state
     # return the col no (action)
     try:                                        # Load the table
-        Q_table = np.load("qt3.npy")
+        Qtable = np.load("qtt3.npy")
     except:                                     # Create table
         # Q_table = np.random.rand(300, 4)
-        Q_table = np.zeros((300, 4))
+        Qtable = np.zeros((300, 4))
 
     # reward = ((reward+1)/float(20 + 1))
     # print(prev_state, prev_action, reward)
@@ -94,7 +94,7 @@ def Agent(state, prev_state, reward, prev_action):
     # Q_table[prev_state, prev_action] = reward
     # np.save("data/q_table.npy", Q_table)
 
-    action = np.argmax(Q_table, axis = 1)[state]
+    action = np.argmax(Qtable,axis=1)[state]
 
 
 
@@ -157,19 +157,19 @@ prev_action = 0
 prev_loc = (20,20)
 
 while running:
-  # # IF user wants to play
-  #   user_control()
-  #   location = playerObj.locate()
-  #   print(location[0]/20+location[1])
-
-#   If Agent needs to be trained
-    action = prev_action = Agent(state, prev_state, reward, prev_action)
-    agent_control(action)
-    # obv, reward, done, info = step(action)
-    state = prev_state = getState(playerObj.locate())
-    reward, done = getReward(playerObj.locate())
+  # IF user wants to play
+    user_control()
     location = playerObj.locate()
-    print(location[0]/20+location[1], action, reward)
+    print(location[0]/20+location[1])
+
+# #   If Agent needs to be trained
+#     action = prev_action = Agent(state, prev_state, reward, prev_action)
+#     agent_control(action)
+#     # obv, reward, done, info = step(action)
+#     state = prev_state = getState(playerObj.locate())
+#     reward, done = getReward(playerObj.locate())
+#     location = playerObj.locate()
+#     print(location[0]/20+location[1], action, reward)
 
     for _ in pygame.event.get():
         if _.type == pygame.QUIT:

@@ -5,7 +5,7 @@ import os
 import sys
 import settings as st
 import colors, player, wall, checkpoint, win
-import AI
+import AI as ai
 import reward
 
 os.environ["SDL_VIDEO_CENTERED"] = '1'
@@ -106,7 +106,7 @@ while running:
     # obv, reward, done, info = step(action)
     state = getState(playerObj.locate())
     rewardObj = reward.Reward()
-    reward, done = rewardObj.getReward(playerObj.locate())
+    reward, done = rewardObj.getReward(playerObj)
     # location = playerObj.locate()
     # print(location[0]/20+location[1], action, reward)
 

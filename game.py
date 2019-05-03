@@ -100,11 +100,13 @@ while running:
   #   print(location[0]/20+location[1])
 
 #   Play with the Agent
-    action = Agent(state, reward)
+    aiObj = ai.AI()
+    action = aiObj.agent(state, reward)
     agent_control(action)
     # obv, reward, done, info = step(action)
-    state= getState(playerObj.locate())
-    reward, done = getReward(playerObj.locate())
+    state = getState(playerObj.locate())
+    rewardObj = reward.Reward()
+    reward, done = rewardObj.getReward(playerObj.locate())
     # location = playerObj.locate()
     # print(location[0]/20+location[1], action, reward)
 

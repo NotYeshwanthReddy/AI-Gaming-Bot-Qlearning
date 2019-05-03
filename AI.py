@@ -41,6 +41,9 @@ class AI(object):
 
     # Choses an action based on previous experience
     def getAction(state):
+        for action in range(4):
+            if Qtable[state, action] is 0:
+                return action
         action = np.argmax(Qtable,axis=1)[state]
         return action
 

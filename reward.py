@@ -1,4 +1,5 @@
 import settings as st
+import win
 
 prev_loc = (0,0)
 
@@ -9,8 +10,9 @@ class Reward(object):
         pass
 
 
-    def reward(self, state, action):
-
+    def getReward(self, state, action):
+    	winObj = win.Win()
+    	winPos = winObj.locate()
         return reward, False
 
 

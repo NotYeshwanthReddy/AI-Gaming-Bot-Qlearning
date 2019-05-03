@@ -4,13 +4,14 @@ prev_loc = (0,0)
 
 class Reward(object):
 
-    # AI initilisation
+    # Reward initilisation
     def __init__(self):
         pass
 
 
-    def reward(self, state, reward):
-        pass
+    def reward(self, state, action):
+
+        return reward, False
 
 
 # def getReward(location):

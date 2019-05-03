@@ -5,6 +5,8 @@ import os
 import sys
 import settings as st
 import colors, player, wall, checkpoint, win
+import AI
+import reward
 
 os.environ["SDL_VIDEO_CENTERED"] = '1'
 pygame.init()

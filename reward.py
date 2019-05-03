@@ -1,5 +1,6 @@
 import settings as st
-import win
+import win, checkpoint
+import player
 
 prev_loc = (0,0)
 
@@ -11,8 +12,8 @@ class Reward(object):
 
 
     def getReward(self, state, action):
-    	winObj = win.Win()
-    	winPos = winObj.locate()
+    	winsPos = player.winsPos
+    	checkpointsPos = player.checkpointsPos
         return reward, False
 
 

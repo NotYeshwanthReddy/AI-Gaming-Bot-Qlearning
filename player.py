@@ -5,6 +5,10 @@ import checkpoint
 import win
 
 
+winsPos = []
+checkpointsPos = []
+
+
 class Player(object):
 
     # Map initilisation
@@ -23,8 +27,10 @@ class Player(object):
                     wall.Wall((x, y))
                 if col == 'W' or col == 'w':
                     win.Win((x, y))
+                    winsPos.append((x, y))
                 if col == 'C' or col == 'c':
                     checkpoint.Checkpoint((x, y))
+                    checkpointsPos.append((x, y))
                 if col == 'O' or col == 'o':
                     self.rect = pygame.Rect(x, y, st.playerLength,
                                             st.playerLength)

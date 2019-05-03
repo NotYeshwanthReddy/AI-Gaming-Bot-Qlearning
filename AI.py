@@ -36,7 +36,7 @@ class AI(object):
 
     # Generate a Q value based on current and previous rewards.
     def getQvalue(reward):
-        Q = reward
+        Q = (1-st.alpha)*Qtable[prev_state, prev_action] + st.alpha*(reward+st.gamma*np.amax(Qtable[state,:]))
         return Q
 
     # Choses an action based on previous experience

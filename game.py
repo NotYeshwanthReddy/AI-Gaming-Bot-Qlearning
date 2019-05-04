@@ -75,7 +75,15 @@ def agent_control(key):
         playerObj.move(0, -st.playerLength)     # move up
     if key == 3:
         playerObj.move(-st.playerLength, 0)      # move left
-    
+
+    for _ in win.wins:
+        if playerObj.rect.colliderect(_.rect):
+            pygame.time.delay(100)
+            st.level += 1
+            if st.level <= st.noOfLevels:
+                playerObj.__init__()
+            else:
+                sys.exit()
 
 def getState(location):
     # stateTable = {(0,0):1, 

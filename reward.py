@@ -30,6 +30,12 @@ class Reward(object):
             reward = 0
 
         prev_loc = location
+
+        for _ in win.wins:
+            if playerObj.rect.colliderect(_.rect):
+                reward = 2
+                return reward, False
+
         return reward, False
 
 

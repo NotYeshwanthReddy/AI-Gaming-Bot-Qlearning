@@ -1,12 +1,11 @@
 import pygame
-import math
-import numpy as np
 import os
 import sys
+
 import settings as st
 import colors, player, wall, checkpoint, win
 import AI as ai
-import reward
+import reward as rwd
 
 os.environ["SDL_VIDEO_CENTERED"] = '1'
 pygame.init()
@@ -105,7 +104,7 @@ while running:
     agent_control(action)
     # obv, reward, done, info = step(action)
     state = getState(playerObj.locate())
-    rewardObj = reward.Reward()
+    rewardObj = rwd.Reward()
     reward, done = rewardObj.getReward(playerObj)
     # location = playerObj.locate()
     # print(location[0]/20+location[1], action, reward)

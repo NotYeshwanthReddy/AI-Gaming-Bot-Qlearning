@@ -22,8 +22,7 @@ class AI(object):
             np.save(Q_file, Qtable)
         
         # Get and Save Q value (Saving new experience)
-        Q = (1-st.alpha)*Qtable[prev_state, prev_action] + st.alpha*(reward+st.gamma*np.amax(Qtable[state,:]))
-        Qtable[state, action] = Q
+        Qtable[prev_state, prev_action] = (1-st.alpha)*Qtable[prev_state, prev_action] + st.alpha*(reward+st.gamma*np.amax(Qtable[state,:]))
         np.save(Q_file, Qtable)
         
         # Take a new action
@@ -38,6 +37,7 @@ class AI(object):
 
     # Choses an action based on previous experience
     def getAction(self, state):
+        global Qtable
         for action in range(4):
             if Qtable[state, action] == 0:
                 return action

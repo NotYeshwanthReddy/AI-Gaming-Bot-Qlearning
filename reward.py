@@ -1,7 +1,7 @@
 import settings as st
 import win, checkpoint
 import player
-import game
+import math
 
 prev_loc = (0, 0)
 
@@ -13,12 +13,14 @@ class Reward(object):
 
 
     def getReward(self, playerObj):
+        global prev_loc
+        
         winsPos = player.winsPos
         checkpointsPos = player.checkpointsPos
         location = playerObj.locate()
 
-        prev_dist = abs(math.sqrt(math.pow(prev_loc[0] - Win_loc[0], 2) + math.pow(prev_loc[1] - Win_loc[1], 2) * 1.0))
-        current_dist = abs(math.sqrt(math.pow(location[0] - Win_loc[0], 2) + math.pow(location[1] - Win_loc[1], 2) * 1.0))
+        prev_dist = abs(math.sqrt(math.pow(prev_loc[0] - winsPos[0][0], 2) + math.pow(prev_loc[1] - winsPos[0][1], 2) * 1.0))
+        current_dist = abs(math.sqrt(math.pow(location[0] - winsPos[0][0], 2) + math.pow(location[1] - winsPos[0][1], 2) * 1.0))
         
         if (current_dist < prev_dist):
             reward = 1

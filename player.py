@@ -13,6 +13,8 @@ class Player(object):
 
     # Map initilisation
     def __init__(self):
+        global winsPos
+        global checkpointsPos
         wall.walls = []
         checkpoint.checkpoints = []
         win.wins = []

@@ -1,3 +1,10 @@
+"""
+Created on:
+    May 1 2019
+Developers:
+    Nikhil Reddy
+"""
+
 import settings as st
 import pygame
 

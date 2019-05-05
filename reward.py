@@ -1,3 +1,10 @@
+"""
+Created on:
+    May 1 2019
+Developers:
+    Yeshwanth Reddy
+    Nikhil Reddy
+"""
 import settings as st
 import win, checkpoint
 import player
@@ -10,7 +17,6 @@ class Reward(object):
     # Reward initilisation
     def __init__(self):
         pass
-
 
     def getReward(self, playerObj):
         global prev_loc
@@ -34,7 +40,8 @@ class Reward(object):
         for _ in win.wins:
             if playerObj.rect.colliderect(_.rect):
                 reward = 2
-                return reward, False
+                print("reward win")
+                return reward, True
 
         return reward, False
 

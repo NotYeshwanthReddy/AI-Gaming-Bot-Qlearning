@@ -1,3 +1,10 @@
+"""
+Created on:
+    May 1 2019
+Developers:
+    Yeshwanth Reddy
+    Nikhil Reddy
+"""
 import pygame
 import settings as st
 import wall
@@ -18,8 +25,9 @@ class Player(object):
         wall.walls = []
         checkpoint.checkpoints = []
         win.wins = []
+        level_map = st.level_map
 
-        with open('levels/level_' + str(st.level), 'r') as f:
+        with open(level_map, 'r') as f:
             level_map = f.read().split('\n')
 
         x = y = 0
